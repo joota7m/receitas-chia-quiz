@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quiz - Receitas com Chia</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+	
+
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '705677082101813');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=705677082101813&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- UTMify Code -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-068KZQPLT5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-068KZQPLT5');
+    </script>
+</head>
+<body>
+
+    <div id="app" class="app-container">
+        
+        <!-- HEADER (Logo and Progress) -->
+        <header class="quiz-header d-none" id="mainHeader">
+            <button class="back-btn" id="btnBack" aria-label="Voltar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </button>
+            <div class="logo">
+                <img src="assets/images/Logo_chia.png" alt="Logo Receitas Chia" style="max-height: 35px;">
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </header>
+
+        <!-- STEP 0: Splash Screen (Landing) -->
+        <section class="step" id="step-0" style="align-items: flex-start; padding-top: 2rem; overflow-y: auto;">
+            <div class="splash-content" style="justify-content: flex-start; height: auto; min-height: 100%; padding-bottom: 2rem;">
+                
+                
+                <div class="hero-image-container" style="background: none; height: auto; padding: 0; min-height: auto;">
+                    <img src="assets/images/etapa1.png" alt="Receita com Chia" style="width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);">
+                </div>
+
+                <div class="splash-text">
+                    <p>Descubra como ativar seu metabolismo, <strong>desinchar e secar a barriga</strong> em 21 dias com o <strong>Método das Receitas com Chia</strong>!</p>
+                </div>
+
+                <button class="btn btn-primary btn-pulse" onclick="nextStep(1)">
+                    Quero saber se funciona para mim! 🔥
+                </button>
+                
+                <div class="social-proof">
+                    <span>✓ 127.000+ mulheres</span>
+                    <span class="dot">•</span>
+                    <span>✓ 100% Natural</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 1: Welcome -->
+        <section class="step d-none" id="step-1">
+            <div class="step-content text-center">
+                <div class="icon-container mt-4 mb-3">
+                    <img src="assets/images/Logo_chia.png" alt="Logo Receitas Chia" style="max-width: 80px; margin: 0 auto; display: block;">
+                </div>
+                <h2 class="step-title">Vamos começar sua jornada! 🚀</h2>
+                <p class="step-subtitle">Responda algumas perguntas rápidas para personalizar seu plano.</p>
+                
+                <button class="btn btn-secondary mt-5" onclick="nextStep(2)">
+                    Vamos lá! 💪
+                </button>
+            </div>
+        </section>
+
+        <!-- STEP 2: Age -->
+        <section class="step d-none" id="step-2">
+            <div class="step-content">
+                <h2 class="step-title text-center">Qual a sua idade?</h2>
+                <p class="step-subtitle text-center">Selecione sua faixa etária.</p>
+                
+                <div class="options-list mt-4">
+                    <button class="option-btn" onclick="selectOption('age', '18-27'); nextStep(3)">
+                        <span class="emoji">🌸</span> 18 - 27 anos <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('age', '28-39'); nextStep(3)">
+                        <span class="emoji">💐</span> 28 - 39 anos <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('age', '40-54'); nextStep(3)">
+                        <span class="emoji">🌺</span> 40 - 54 anos <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('age', '54+'); nextStep(3)">
+                        <span class="emoji">🌷</span> 54+ anos <div class="radio-circle"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 3: Body Type -->
+        <section class="step d-none" id="step-3">
+            <div class="step-content">
+                <h2 class="step-title text-center">Como você classifica <span class="highlight-text">o seu corpo?</span></h2>
+                <p class="step-subtitle text-center">Selecione a opção que melhor te descreve</p>
+                
+                <div class="grid-options mt-4">
+                    <button class="card-btn" onclick="selectOption('body', 'equilibrado'); nextStep(4)">
+                        <img src="assets/images/equilibrado.jpg" alt="Equilibrado" class="card-img">
+                        <div class="card-overlay">
+                            <span class="card-label">Equilibrado</span>
+                            <div class="radio-circle"></div>
+                        </div>
+                    </button>
+                    <button class="card-btn" onclick="selectOption('body', 'alguns-quilos'); nextStep(4)">
+                        <img src="assets/images/algunsquilos.jpg" alt="Alguns quilos a mais" class="card-img">
+                        <div class="card-overlay">
+                            <span class="card-label">Alguns quilos a mais</span>
+                            <div class="radio-circle"></div>
+                        </div>
+                    </button>
+                    <button class="card-btn" onclick="selectOption('body', 'acima-do-peso'); nextStep(4)">
+                        <img src="assets/images/acimadopeso.jpg" alt="Acima do peso" class="card-img">
+                        <div class="card-overlay">
+                            <span class="card-label">Acima do peso</span>
+                            <div class="radio-circle"></div>
+                        </div>
+                    </button>
+                    <button class="card-btn" onclick="selectOption('body', 'obesidade'); nextStep(4)">
+                        <img src="assets/images/Obesidade.jpg" alt="Obesidade" class="card-img">
+                        <div class="card-overlay">
+                            <span class="card-label">Obesidade</span>
+                            <div class="radio-circle"></div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 4: Target Areas -->
+        <section class="step d-none" id="step-4">
+            <div class="step-content">
+                <h2 class="step-title text-center">Quais as áreas que você <span class="highlight-text">mais quer perder gordura?</span></h2>
+                <p class="step-subtitle text-center">Toque nas áreas desejadas.</p>
+                
+                <div class="split-layout mt-4">
+                    <div class="split-left" style="align-items: flex-start;">
+                        <img src="assets/images/etapa5.jpg" alt="Silhueta Corpo" class="body-silhouette" style="border-radius: var(--radius-md); max-width: 100%; height: auto;">
+                    </div>
+                    <div class="split-right">
+                        <div class="checkbox-list" style="gap: 0.6rem;">
+                            <label class="checkbox-btn" style="padding: 0.6rem 0.8rem; font-size: 0.95rem;">
+                                <span class="emoji">🙂</span> Papada
+                                <input type="checkbox" name="area" value="papada" onchange="toggleCheckbox(this)">
+                                <div class="checkbox-box"></div>
+                            </label>
+                            <label class="checkbox-btn" style="padding: 0.6rem 0.8rem; font-size: 0.95rem;">
+                                <span class="emoji">💪</span> Braços
+                                <input type="checkbox" name="area" value="bracos" onchange="toggleCheckbox(this)">
+                                <div class="checkbox-box"></div>
+                            </label>
+                            <label class="checkbox-btn" style="padding: 0.6rem 0.8rem; font-size: 0.95rem;">
+                                <span class="emoji">🎯</span> Barriga
+                                <input type="checkbox" name="area" value="barriga" onchange="toggleCheckbox(this)">
+                                <div class="checkbox-box"></div>
+                            </label>
+                            <label class="checkbox-btn" style="padding: 0.6rem 0.8rem; font-size: 0.95rem;">
+                                <span class="emoji">👙</span> Cintura
+                                <input type="checkbox" name="area" value="cintura" onchange="toggleCheckbox(this)">
+                                <div class="checkbox-box"></div>
+                            </label>
+                            <label class="checkbox-btn" style="padding: 0.6rem 0.8rem; font-size: 0.95rem;">
+                                <span class="emoji">🍑</span> Glúteos
+                                <input type="checkbox" name="area" value="gluteos" onchange="toggleCheckbox(this)">
+                                <div class="checkbox-box"></div>
+                            </label>
+                            <label class="checkbox-btn" style="padding: 0.6rem 0.8rem; font-size: 0.95rem;">
+                                <span class="emoji">🦵</span> Coxas
+                                <input type="checkbox" name="area" value="coxas" onchange="toggleCheckbox(this)">
+                                <div class="checkbox-box"></div>
+                            </label>
+                            <label class="checkbox-btn" style="padding: 0.6rem 0.8rem; font-size: 0.95rem;">
+                                <span class="emoji">✨</span> Corpo Todo
+                                <input type="checkbox" name="area" value="corpo-todo" onchange="toggleCheckbox(this)">
+                                <div class="checkbox-box"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 mb-3">
+                    <button class="btn btn-secondary btn-full" onclick="nextStep(5)" id="btnContinueTarget" disabled>
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- STEP 5: Social Proof -->
+        <section class="step d-none" id="step-5">
+            <div class="step-content">
+                <h2 class="step-title text-center">Sim, até as famosas estão usando! ⭐</h2>
+                <p class="step-subtitle text-center">A Receita com Chia é tendência entre celebridades e influenciadoras.</p>
+                
+                <div class="text-center mt-4 mb-4">
+                    <img src="assets/images/provafamosa.png" alt="Notícia G1" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                </div>
+
+                <div class="fixed-bottom-action">
+                    <button class="btn btn-secondary btn-full" onclick="nextStep(6)">
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 6: Name -->
+        <section class="step d-none" id="step-6">
+            <div class="step-content">
+                <h2 class="step-title text-center">Qual é o seu nome?</h2>
+                <p class="step-subtitle text-center">Para personalizarmos sua experiência.</p>
+                
+                <div class="input-group mt-5">
+                    <input type="text" id="userNameLine" class="form-control" placeholder="Seu primeiro nome" autocomplete="given-name">
+                </div>
+
+                <div class="fixed-bottom-action">
+                    <button class="btn btn-secondary btn-full mt-4" onclick="saveNameAndContinue(7)">
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 7: Weight Effect -->
+        <section class="step d-none" id="step-7">
+            <div class="step-content">
+                <h2 class="step-title text-center"><span class="highlight-text display-name">Você</span>, como o peso <span class="highlight-text">afeta sua vida?</span></h2>
+                <p class="step-subtitle text-center">Entender isso nos ajuda a criar seu protocolo ideal</p>
+                
+                <div class="options-list mt-4">
+                    <button class="option-btn-tall" onclick="selectOption('effect', 'autoestima'); nextStep(8)">
+                        <div class="option-icon">💔</div>
+                        <div class="option-text">
+                            <strong>Afeta minha autoestima</strong>
+                            <span>Me sinto insegura com meu corpo</span>
+                        </div>
+                        <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn-tall" onclick="selectOption('effect', 'saude'); nextStep(8)">
+                        <div class="option-icon">🏥</div>
+                        <div class="option-text">
+                            <strong>Afeta minha saúde</strong>
+                            <span>Sinto cansaço, dores e falta de energia</span>
+                        </div>
+                        <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn-tall" onclick="selectOption('effect', 'relacionamentos'); nextStep(8)">
+                        <div class="option-icon">👥</div>
+                        <div class="option-text">
+                            <strong>Afeta meus relacionamentos</strong>
+                            <span>Evito encontros e situações sociais</span>
+                        </div>
+                        <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn-tall" onclick="selectOption('effect', 'rotina'); nextStep(8)">
+                        <div class="option-icon">🗓️</div>
+                        <div class="option-text">
+                            <strong>Afeta minha rotina</strong>
+                            <span>Dificuldade em fazer tarefas simples</span>
+                        </div>
+                        <div class="radio-circle"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 8: Appearance -->
+        <section class="step d-none" id="step-8">
+            <div class="step-content">
+                <h2 class="step-title text-center">Você está feliz com <span class="highlight-text">sua aparência atual?</span></h2>
+                <p class="step-subtitle text-center">Seja sincera consigo mesma</p>
+                
+                <div class="options-list mt-4">
+                    <button class="option-btn" onclick="selectOption('appearance', 'nao-feliz'); nextStep(9)">
+                        <span class="emoji">😮‍💨</span> Não estou feliz <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('appearance', 'poderia-melhorar'); nextStep(9)">
+                        <span class="emoji">😐</span> Poderia ser melhor <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('appearance', 'trabalhando-nisso'); nextStep(9)">
+                        <span class="emoji">💪</span> Estou trabalhando nisso <div class="radio-circle"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 9: Barriers -->
+        <section class="step d-none" id="step-9">
+            <div class="step-content">
+                <h2 class="step-title text-center">O que te impede de <span class="highlight-text">emagrecer?</span></h2>
+                <p class="step-subtitle text-center">Selecione todas as barreiras que você enfrenta</p>
+                
+                <div class="checkbox-list mt-4">
+                    <label class="checkbox-btn">
+                        <span class="emoji">⏰</span> Falta de tempo
+                        <input type="checkbox" name="barrier" value="tempo" onchange="toggleBarrier()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                    <label class="checkbox-btn">
+                        <span class="emoji">🍫</span> Falta de autocontrole
+                        <input type="checkbox" name="barrier" value="autocontrole" onchange="toggleBarrier()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                    <label class="checkbox-btn">
+                        <span class="emoji">💰</span> Questões financeiras
+                        <input type="checkbox" name="barrier" value="financeiras" onchange="toggleBarrier()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                    <label class="checkbox-btn">
+                        <span class="emoji">📉</span> Falta de constância
+                        <input type="checkbox" name="barrier" value="constancia" onchange="toggleBarrier()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                </div>
+
+                <div class="fixed-bottom-action">
+                    <button class="btn btn-secondary btn-full" onclick="nextStep(10)" id="btnContinueBarrier" disabled>
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 10: Goals -->
+        <section class="step d-none" id="step-10">
+            <div class="step-content">
+                <h2 class="step-title text-center">O que você <span class="highlight-text">quer conquistar?</span></h2>
+                <p class="step-subtitle text-center">Selecione seus maiores objetivos</p>
+                
+                <div class="goals-grid mt-4">
+                    <label class="checkbox-btn">
+                        <span class="emoji">⚡</span> Ter mais energia
+                        <input type="checkbox" name="goal" value="energia" onchange="toggleGoals()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                    <label class="checkbox-btn">
+                        <span class="emoji">👗</span> Usar roupas que amo
+                        <input type="checkbox" name="goal" value="roupas" onchange="toggleGoals()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                    <label class="checkbox-btn">
+                        <span class="emoji">💖</span> Melhorar autoestima
+                        <input type="checkbox" name="goal" value="autoestima" onchange="toggleGoals()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                    <label class="checkbox-btn">
+                        <span class="emoji">💪</span> Ter mais saúde
+                        <input type="checkbox" name="goal" value="saude" onchange="toggleGoals()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                    <label class="checkbox-btn">
+                        <span class="emoji">🦋</span> Me sentir mais leve
+                        <input type="checkbox" name="goal" value="leve" onchange="toggleGoals()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                    <label class="checkbox-btn">
+                        <span class="emoji">🌟</span> Receber elogios
+                        <input type="checkbox" name="goal" value="elogios" onchange="toggleGoals()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                </div>
+
+                <div class="fixed-bottom-action">
+                    <button class="btn btn-secondary btn-full" onclick="nextStep(11)" id="btnContinueGoals" disabled>
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 11: Info Screen -->
+        <section class="step d-none" id="step-11">
+            <div class="step-content">
+                <h2 class="step-title">Ótimo, <span class="highlight-text display-name">Você</span>! Veja como funciona 🎉</h2>
+                <p class="step-subtitle highlight-text" style="font-weight:700; color: #E91E63; margin-top: 0.5rem;">A Receita com Chia ativa a queima de gordura natural com ingredientes caseiros que você prepara em minutos.</p>
+                
+                <div class="bullet-list">
+                    <div class="bullet-item"><div class="bullet-icon">✓</div> Fácil de preparar</div>
+                    <div class="bullet-item"><div class="bullet-icon">✓</div> 2 vezes ao dia</div>
+                    <div class="bullet-item"><div class="bullet-icon">✓</div> Receita 100% Natural</div>
+                </div>
+
+                <div class="process-list">
+                    <div class="process-item">
+                        <div class="process-step-row">
+                            <div class="process-step-num">1</div>
+                            <img src="assets/images/preparo1.png" class="process-img" alt="Antes">
+                            <div class="process-text">
+                                <h4>Antes</h4>
+                                <p>Gordura acumulada e metabolismo lento</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="down-arrow text-center">↓</div>
+                    <div class="process-item">
+                        <div class="process-step-row">
+                            <div class="process-step-num">2</div>
+                            <img src="assets/images/preparo2.png" class="process-img" alt="Receita com Chia">
+                            <div class="process-text">
+                                <h4>Receitas com Chia</h4>
+                                <p>Receitas caseiras simples e poderosas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="down-arrow text-center">↓</div>
+                    <div class="process-item">
+                        <div class="process-step-row">
+                            <div class="process-step-num">3</div>
+                            <img src="assets/images/preparo3.png" class="process-img" alt="Queima">
+                            <div class="process-text">
+                                <h4>Queima natural ativada 🔥</h4>
+                                <p>Metabolismo acelerado sem dietas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="down-arrow text-center">↓</div>
+                    <div class="process-item">
+                        <div class="process-step-row">
+                            <div class="process-step-num" style="background:#4CAF50;">✨</div>
+                            <img src="assets/images/preparo4.png" class="process-img" alt="Corpo dos sonhos">
+                            <div class="process-text">
+                                <h4 style="color: #4CAF50;">Corpo dos sonhos!</h4>
+                                <p>Resultado visível em poucas semanas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-banner">
+                    💡 <strong>Receita caseira</strong> que ativa a saciedade e reduz o inchaço de forma <span class="highlight-text">100% natural!</span>
+                </div>
+
+                <div class="fixed-bottom-action">
+                    <button class="btn btn-secondary btn-full" onclick="nextStep(12)">
+                        Entendi! Continuar 🚀
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 12: Peso Atual -->
+        <section class="step d-none" id="step-12">
+            <div class="step-content">
+                <h2 class="step-title text-center">Qual é seu <span class="highlight-text">peso atual?</span></h2>
+                <p class="step-subtitle text-center">Seja sincera para um resultado preciso</p>
+                
+                <div class="number-display">
+                    <span class="number-value" id="val-pesoAtual">75</span><span class="number-unit">kg</span>
+                </div>
+                
+                <div class="number-controls">
+                    <div class="control-btn" onclick="updateNumber('pesoAtual', -5)">-5</div>
+                    <div class="control-btn" onclick="updateNumber('pesoAtual', -1)">-</div>
+                    <div class="control-btn" onclick="updateNumber('pesoAtual', 1)">+</div>
+                    <div class="control-btn" onclick="updateNumber('pesoAtual', 5)">+5</div>
+                </div>
+                
+                <div class="range-labels">
+                    <span>45 kg</span>
+                    <span>150 kg</span>
+                </div>
+
+                <div class="fixed-bottom-action">
+                    <button class="btn btn-secondary btn-full mt-4" onclick="nextStep(13)">
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 13: Altura -->
+        <section class="step d-none" id="step-13">
+            <div class="step-content">
+                <h2 class="step-title text-center">Qual é sua <span class="highlight-text">altura?</span></h2>
+                <p class="step-subtitle text-center">Precisamos disso para calcular seu IMC</p>
+                
+                <div class="number-display">
+                    <span class="number-value" id="val-altura">165</span><span class="number-unit">cm</span>
+                </div>
+                
+                <div class="number-controls">
+                    <div class="control-btn" onclick="updateNumber('altura', -5)">-5</div>
+                    <div class="control-btn" onclick="updateNumber('altura', -1)">-</div>
+                    <div class="control-btn" onclick="updateNumber('altura', 1)">+</div>
+                    <div class="control-btn" onclick="updateNumber('altura', 5)">+5</div>
+                </div>
+                
+                <div class="range-labels">
+                    <span>140 cm</span>
+                    <span>200 cm</span>
+                </div>
+
+                <div class="fixed-bottom-action">
+                    <button class="btn btn-secondary btn-full mt-4" onclick="nextStep(14)">
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 14: Peso Desejado -->
+        <section class="step d-none" id="step-14">
+            <div class="step-content">
+                <h2 class="step-title text-center">Qual é seu <span class="highlight-text">peso desejado?</span></h2>
+                <p class="step-subtitle text-center">Qual o peso que você sonha alcançar?</p>
+                
+                <div class="number-display">
+                    <span class="number-value" id="val-pesoDesejado">65</span><span class="number-unit">kg</span>
+                </div>
+                
+                <div class="number-controls">
+                    <div class="control-btn" onclick="updateNumber('pesoDesejado', -5)">-5</div>
+                    <div class="control-btn" onclick="updateNumber('pesoDesejado', -1)">-</div>
+                    <div class="control-btn" onclick="updateNumber('pesoDesejado', 1)">+</div>
+                    <div class="control-btn" onclick="updateNumber('pesoDesejado', 5)">+5</div>
+                </div>
+                
+                <div class="range-labels">
+                    <span>40 kg</span>
+                    <span id="label-pesoMax">74 kg</span>
+                </div>
+
+                <div class="meta-badge" id="meta-badge-text">
+                    Meta: perder 10 kg 🎯
+                </div>
+
+                <div class="fixed-bottom-action">
+                    <button class="btn btn-secondary btn-full" onclick="nextStep(15)">
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 15: Goal Confirmation -->
+        <section class="step d-none" id="step-15">
+            <div class="step-content">
+                <div class="text-center mb-4 mt-2">
+                    <img src="assets/images/Objetivo.png" alt="Objetivo" style="width: 100%; max-width: 320px; height: auto; border-radius: 12px; margin: 0 auto; display: block; box-shadow: 0 10px 20px rgba(161,56,204,0.15);">
+                </div>
+                
+                <div class="info-banner mt-4" style="background: rgba(161, 56, 204, 0.03); border: 1px solid rgba(161, 56, 204, 0.15); padding: 1.5rem;">
+                    <h2 class="step-title text-center" style="font-size: 1.4rem;">Esse é um ótimo objetivo, <span class="highlight-text display-name">Maria</span>! 💜</h2>
+                    <p class="text-center" style="color: var(--text-muted); font-weight: 600; margin: 1rem 0; font-size: 1.1rem;" id="goal-confirmation-text">
+                        Meta: 75kg → 65kg (10kg)
+                    </p>
+                    <p class="text-center" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.4;">
+                        Agora vamos ajustar o próximo passo para você começar a perceber diferença <span class="highlight-text" style="font-weight: 700;">já nos primeiros dias.</span>
+                    </p>
+                </div>
+
+                <div class="mt-4 mb-4">
+                    <button class="btn btn-secondary btn-full mt-2" onclick="nextStep(16)">
+                        Ok, Vamos lá! 🚀
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 16: Routine -->
+        <section class="step d-none" id="step-16">
+            <div class="step-content">
+                <h2 class="step-title text-center">Como é sua <span class="highlight-text">rotina diária?</span></h2>
+                <p class="step-subtitle text-center">Selecione todas as que se encaixam.</p>
+                
+                <div class="checkbox-list mt-4">
+                    <label class="checkbox-btn">
+                        <span class="emoji">🏢</span> Trabalho fora de casa
+                        <input type="checkbox" name="rotina" value="fora" onchange="toggleRotina()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                    <label class="checkbox-btn">
+                        <span class="emoji">🏠</span> Trabalho em home office
+                        <input type="checkbox" name="rotina" value="home" onchange="toggleRotina()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                    <label class="checkbox-btn">
+                        <span class="emoji">👨‍👩‍👧‍👦</span> Cuido da casa/família
+                        <input type="checkbox" name="rotina" value="casa" onchange="toggleRotina()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                    <label class="checkbox-btn">
+                        <span class="emoji">📚</span> Estudo
+                        <input type="checkbox" name="rotina" value="estudo" onchange="toggleRotina()">
+                        <div class="checkbox-box"></div>
+                    </label>
+                </div>
+
+                <div class="fixed-bottom-action">
+                    <button class="btn btn-secondary btn-full" onclick="nextStep(17)" id="btnContinueRotina" disabled>
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 17: Pregnancies -->
+        <section class="step d-none" id="step-17">
+            <div class="step-content">
+                <h2 class="step-title text-center"><span class="highlight-text">Quantas gestações</span> você já teve?</h2>
+                <p class="step-subtitle text-center">Isso ajuda a personalizar seu plano.</p>
+                
+                <div class="options-list mt-4">
+                    <button class="option-btn" onclick="selectOption('gestacoes', '0'); nextStep(18)">
+                        <span class="emoji">🚫</span> Nunca estive grávida <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('gestacoes', '1'); nextStep(18)">
+                        <span class="emoji">1️⃣</span> 1 gestação <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('gestacoes', '2'); nextStep(18)">
+                        <span class="emoji">2️⃣</span> 2 gestações <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('gestacoes', '3+'); nextStep(18)">
+                        <span class="emoji">3️⃣</span> 3 ou mais gestações <div class="radio-circle"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 18: Sleep -->
+        <section class="step d-none" id="step-18">
+            <div class="step-content">
+                <h2 class="step-title text-center">Quantas horas <span class="highlight-text">você dorme por noite?</span></h2>
+                <p class="step-subtitle text-center">O sono é essencial para o emagrecimento.</p>
+                
+                <div class="options-list mt-4">
+                    <button class="option-btn" onclick="selectOption('sono', 'menos-5'); nextStep(19)">
+                        <span class="emoji">😴</span> Menos de 5 horas <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('sono', '5-7'); nextStep(19)">
+                        <span class="emoji">🛌</span> 5 a 7 horas <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('sono', '7-9'); nextStep(19)">
+                        <span class="emoji">😊</span> 7 a 9 horas <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('sono', 'mais-9'); nextStep(19)">
+                        <span class="emoji">💤</span> Mais de 9 horas <div class="radio-circle"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 19: Water -->
+        <section class="step d-none" id="step-19">
+            <div class="step-content">
+                <h2 class="step-title text-center">Quanta água você <span class="highlight-text">bebe por dia?</span></h2>
+                <p class="step-subtitle text-center">A hidratação acelera resultados.</p>
+                
+                <div class="options-list mt-4">
+                    <button class="option-btn" onclick="selectOption('agua', 'nada'); nextStep(20)">
+                        <span class="emoji">🌵</span> Quase nada <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('agua', 'menos-1'); nextStep(20)">
+                        <span class="emoji">💧</span> Menos de 1 litro <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('agua', '1-2'); nextStep(20)">
+                        <span class="emoji">💦</span> 1 a 2 litros <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="selectOption('agua', 'mais-2'); nextStep(20)">
+                        <span class="emoji">🌊</span> Mais de 2 litros <div class="radio-circle"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 20: Processing Loading -->
+        <section class="step d-none" id="step-20">
+            <div class="step-content text-center" style="justify-content: center;">
+                <div class="loader-radial" id="loader-radial-bg">
+                    <div class="loader-radial-text"><span id="loading-percent">0</span>%</div>
+                </div>
+                
+                <h2 class="step-title mt-5" style="font-size: 1.4rem;">Verificando seus dados...</h2>
+                
+                <div class="checklist-loader">
+                    <div class="checklist-item" id="check-1">
+                        <div class="icon"><span class="initial-icon">🔍</span></div> Analisando suas respostas
+                    </div>
+                    <div class="checklist-item" id="check-2">
+                        <div class="icon"><span class="initial-icon">⚖️</span></div> Calculando seu déficit calórico
+                    </div>
+                    <div class="checklist-item" id="check-3">
+                        <div class="icon"><span class="initial-icon">🥗</span></div> Selecionando ingredientes ideais
+                    </div>
+                    <div class="checklist-item" id="check-4">
+                        <div class="icon"><span class="initial-icon">✅</span></div> Verificação concluída!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 21: Achievable Goal -->
+        <section class="step d-none" id="step-21">
+            <div class="step-content text-center" style="justify-content: center; position: relative;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🎯</div>
+                <h2 class="step-title" style="font-size: 1.8rem; line-height: 1.3;">
+                    <span class="highlight-text display-name">você</span>, você gostaria de perder entre 
+                    <span class="highlight-text"><span id="dyn-kilos-min">8</span> e <span id="dyn-kilos-max">11</span> kilos</span> em poucas semanas?
+                </h2>
+                <p class="step-subtitle mt-4" style="font-size: 1.1rem;">
+                    Baseado no seu perfil, esse resultado é totalmente alcançável com a <strong>Receita com Chia!</strong>
+                </p>
+
+                <div class="fixed-bottom-action">
+                    <button class="btn btn-primary btn-full btn-pulse" onclick="nextStep(22)">
+                        Ver resultado da minha análise 📊
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 22: Diagnosis & Analysis -->
+        <section class="step d-none" id="step-22">
+            <div class="step-content">
+                <h2 class="step-title text-center" style="font-size: 1.4rem;">Resultado da sua <span class="highlight-text">análise</span>, <span class="highlight-text display-name">Maria</span></h2>
+                
+                <div class="alert-box mt-4">
+                    <div class="imc-display">
+                        <div class="imc-number" id="dyn-imc-val">27.5</div>
+                        <div class="imc-status">Seu IMC: <span id="dyn-imc-status">Sobrepeso</span></div>
+                    </div>
+                    <div class="alert-title">⚠️ Sinais de alerta identificados:</div>
+                    <div class="alert-item"><div class="alert-icon">✕</div> Metabolismo desacelerado</div>
+                    <div class="alert-item"><div class="alert-icon">✕</div> Risco de acúmulo de gordura visceral</div>
+                    <div class="alert-item"><div class="alert-icon">✕</div> Hormônios de saciedade desregulados</div>
+                </div>
+
+                <div class="green-highlight-box">
+                    🥬 O segredo para secar: <strong>ativar a queima natural</strong>. A Receita com Chia é o "interruptor" para desinchar!
+                </div>
+
+                <div class="benefit-list">
+                    <div class="benefit-title">Benefícios da <span class="highlight-text">Receita com Chia</span> 👇</div>
+                    <div class="benefit-item"><div class="icon">✓</div> Receita 100% Natural</div>
+                    <div class="benefit-item"><div class="icon">✓</div> Ativa o emagrecimento do corpo</div>
+                    <div class="benefit-item"><div class="icon">✓</div> Queima de Gordura localizada</div>
+                    <div class="benefit-item"><div class="icon">✓</div> Regula o seu Metabolismo</div>
+                    <div class="benefit-item"><div class="icon">✓</div> Leveza e corpo Desinchado</div>
+                    <div class="benefit-item"><div class="icon">✓</div> Menos impulsos por doces</div>
+                    <div class="benefit-item"><div class="icon">✓</div> Fácil de fazer e seguir</div>
+                </div>
+
+                <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid #E2E8F0; background: white; margin-bottom: 2rem;">
+                    <img src="assets/images/provaresultado.png" alt="Antes e Depois" style="width:100%; display:block;">
+                    <div class="text-center p-3" style="padding: 1rem;">
+                        <h4 style="font-weight:800;">"Perdi 12kg em 5 semanas!"</h4>
+                        <p style="font-size:0.8rem; color:#666; margin: 0.3rem 0;">Ana, 32 anos - São Paulo</p>
+                        <div style="color:#D69E2E; font-size:1.2rem;">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+
+                <div class="fixed-bottom-action" style="position:relative;">
+                    <button class="btn btn-secondary btn-full" onclick="nextStep(23)">
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 23: How to Use -->
+        <section class="step d-none" id="step-23">
+            <div class="step-content">
+                <h2 class="step-title text-center">Como usar a <span class="highlight-text">Receita com Chia</span></h2>
+                <p class="step-subtitle text-center">Simples, prático e eficaz</p>
+
+                <div class="text-center my-4">
+                    <img src="assets/images/comousar.png" alt="Receita com Chia Instruções" style="width: 100%; max-width: 250px; height: auto; border-radius: 12px; margin: 0 auto; display: block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+
+                <div class="process-list">
+                    <div class="process-item" style="padding-bottom: 1.5rem;">
+                        <div class="process-step-row">
+                            <div class="process-step-num" style="background: #ED8936;">1</div>
+                            <div class="process-text text-center">
+                                <h4 style="font-weight: 800; font-size: 1.05rem;">Prepare a receita</h4>
+                                <p>Receita simples no aplicativo ✨</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="border:none; border-top:1px solid #E2E8F0; width:100%; margin-bottom:1.5rem;">
+                    <div class="process-item" style="padding-bottom: 1.5rem;">
+                        <div class="process-step-row">
+                            <div class="process-step-num" style="background: var(--highlight);">2</div>
+                            <div class="process-text text-center">
+                                <h4 style="font-weight: 800; font-size: 1.05rem;">Consuma 2x ao dia</h4>
+                                <p>Manhã e antes de dormir 🕒</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="border:none; border-top:1px solid #E2E8F0; width:100%; margin-bottom:1.5rem;">
+                    <div class="process-item" style="padding-bottom: 0;">
+                        <div class="process-step-row">
+                            <div class="process-step-num" style="background: #38A169;">3</div>
+                            <div class="process-text text-center">
+                                <h4 style="font-weight: 800; font-size: 1.05rem;">Siga por 21 dias</h4>
+                                <p>Protocolo completo 🗓️</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-footer">
+                    <div class="time-item">
+                        <div class="time-icon">🌞</div>
+                        <div class="time-title">Manhã</div>
+                        <div class="time-desc">Em jejum</div>
+                    </div>
+                    <div class="time-item">
+                        <div class="time-icon">✨</div>
+                        <div class="time-title">Dia</div>
+                        <div class="time-desc">Sem fome</div>
+                    </div>
+                    <div class="time-item">
+                        <div class="time-icon">🌙</div>
+                        <div class="time-title">Noite</div>
+                        <div class="time-desc">Antes de dormir</div>
+                    </div>
+                </div>
+
+                <div class="fixed-bottom-action">
+                    <button class="btn btn-primary btn-full mt-4" onclick="nextStep(24)" style="background: #38A169; box-shadow: 0 4px 15px rgba(56, 161, 105, 0.4);">
+                        Entendi, continuar!
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 24: Final Commitment to Checkout -->
+        <section class="step d-none" id="step-24">
+            <div class="step-content">
+                <div class="text-center mt-2 mb-3">
+                     <div style="position: relative; display: inline-block; width: 100%; max-width: 280px;">
+                         <img src="assets/images/compromete.png" alt="Antes e Depois" style="width:100%; border-radius: var(--radius-md);">
+                         <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; font-size: 3rem; animation: bounceRight 1.5s infinite; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">👉</div>
+                     </div>
+                </div>
+                
+                <div style="display: flex; justify-content: center;">
+                    <div class="lock-badge">
+                        🔒 Para liberar seu plano, preciso saber:
+                    </div>
+                </div>
+
+                <h2 class="step-title text-center mt-3" style="font-size: 1.3rem;">
+                    <span class="highlight-text">Você se compromete</span> a aplicar o protocolo por pelo menos 1 semana para poder ver os resultados?
+                </h2>
+                
+                <div class="options-list mt-5">
+                    <button class="option-btn" onclick="nextStep(25)">
+                        <span class="emoji">🤩</span> Sim me comprometo! <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="nextStep(25)">
+                        <span class="emoji">😎</span> Quero começar hoje <div class="radio-circle"></div>
+                    </button>
+                    <button class="option-btn" onclick="nextStep(25)">
+                        <span class="emoji">🧐</span> Não sei... <div class="radio-circle"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 25: Social Proof / Transformation Stories -->
+        <section class="step d-none" id="step-25">
+            <div class="step-content">
+                <h2 class="step-title text-center" style="font-size: 1.6rem;">Histórias de <span class="highlight-text">Transformação</span></h2>
+                <p class="step-subtitle text-center">Veja quem já transformou o corpo com a Receita com Chia</p>
+                
+                <div class="testimonials-list mt-4 mb-5">
+                    <div class="testimonial-card">
+                        <img src="assets/images/provasocial1.png" alt="Antes e Depois 1">
+                        <div class="testimonial-text">
+                            <h4>"Não conseguia nem fechar minhas calças… Perdi 6kg em 3 semanas!"</h4>
+                            <p>Beatriz, 34 anos</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <img src="assets/images/provasocial2.png" alt="Antes e Depois 2">
+                        <div class="testimonial-text">
+                            <h4>"Minha barriga desinchou e finalmente voltei a usar minhas roupas antigas!"</h4>
+                            <p>Alana, 37 anos</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <img src="assets/images/provasocial3.png" alt="Antes e Depois 3">
+                        <div class="testimonial-text">
+                            <h4>"Me sentia sempre cansada… agora estou muito mais disposta!"</h4>
+                            <p>Daniela, 45 anos</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <img src="assets/images/provasocial4.png" alt="Antes e Depois 4">
+                        <div class="testimonial-text">
+                            <h4>"Até as dores no corpo sumiram, me sinto outra pessoa! ✨"</h4>
+                            <p>Luiza, 52 anos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fixed-bottom-action">
+                    <button class="btn btn-primary btn-full btn-pulse" onclick="nextStep(26)">
+                        Pegar meu protocolo ✨
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 26: Preparing Offer -->
+        <section class="step d-none" id="step-26">
+            <div class="step-content">
+                <div class="transition-banner mt-4">
+                    <h2>Seu protocolo da<br><span style="color:#4CAF50;">Receita com Chia</span><br><span class="badge">de 21 dias está pronto!</span></h2>
+                    <div class="arrow-down-animated">↓</div>
+                </div>
+
+                <div class="checklist-loader mt-5" style="padding: 0 1rem;">
+                    <div class="checklist-item" id="offer-check-1">
+                        <div class="icon"><span class="initial-icon">🩺</span></div> Perfil metabólico analisado
+                    </div>
+                    <div class="checklist-item" id="offer-check-2">
+                        <div class="icon"><span class="initial-icon">⚖️</span></div> Meta de peso calculada
+                    </div>
+                    <div class="checklist-item" id="offer-check-3">
+                        <div class="icon"><span class="initial-icon">🧬</span></div> Compatibilidade verificada
+                    </div>
+                    <div class="checklist-item" id="offer-check-4">
+                        <div class="icon"><span class="initial-icon">📋</span></div> Protocolo de 21 dias montado
+                    </div>
+                    <div class="checklist-item" id="offer-check-5">
+                        <div class="icon"><span class="initial-icon">🎁</span></div> Bônus exclusivos selecionados
+                    </div>
+                    <div class="checklist-item" id="offer-check-6">
+                        <div class="icon"><span class="initial-icon">☑️</span></div> Oferta especial preparada
+                    </div>
+                </div>
+
+                <div class="progress mt-4" style="height: 12px; margin: 0 1rem;">
+                    <div class="progress-bar" id="offer-progress-bar" style="width: 0%; background: linear-gradient(90deg, var(--highlight) 0%, var(--primary) 100%);"></div>
+                </div>
+                <p class="text-center mt-3" style="color: #A0AEC0; font-size: 0.9rem;">Aguarde enquanto finalizamos tudo para você...</p>
+            </div>
+        </section>
+
+        <!-- STEP 27: Sales Page -->
+        <section class="step d-none" id="step-27">
+            <div class="step-content" style="padding-top: 1rem; padding-bottom: 4rem;">
+                
+                <div class="timer-bar">
+                    ⏰ Seu protocolo expira em: <span id="countdown-timer">09:34</span>
+                </div>
+
+                <div class="text-center mb-4">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; border: 2px solid #38A169; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; color: #38A169; font-size: 24px;">✓</div>
+                    <h2 class="step-title" style="font-size: 1.4rem;"><span class="highlight-text display-name">Maria</span>, seu</h2>
+                    <div class="success-box">
+                        <h3>Plano da Receita de 21 dias foi Gerado com Sucesso!</h3>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #718096; padding: 0 1rem;">Ele é exclusivo e gerado só uma vez, não saia dessa página para não perdê-lo</p>
+                </div>
+
+                <div class="text-center mb-4">
+                     <div style="position: relative; display: inline-block; width: 100%; max-width: 320px;">
+                         <img src="assets/images/CTA1.png" alt="Antes e Depois Final" style="width:100%; border-radius: var(--radius-lg);">
+                         <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; font-size: 3rem; animation: bounceRight 1.5s infinite; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">👉</div>
+                         <div style="position: absolute; bottom: 5%; left: 10%; background: #6b7280; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 800; font-size: 0.85rem; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">Antes</div>
+                         <div style="position: absolute; bottom: 5%; right: 10%; background: #22c55e; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 800; font-size: 0.85rem; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">Depois ✨</div>
+                     </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="timeline-card">
+                    <div class="header">
+                        SEU PLANO EXCLUSIVO<br>Protocolo Completo 21 Dias 🎯
+                    </div>
+                    <div class="timeline-content">
+                        <p class="text-center" style="font-size: 0.9rem; margin-bottom: 1.5rem;"><span class="highlight-text display-name" style="font-weight:700;">maria</span>, seguindo o protocolo certinho, veja o que vai acontecer:</p>
+                        
+                        <div class="timeline-item">
+                            <div class="icon">✨</div>
+                            <div class="text">
+                                <h4>SEMANA 1</h4>
+                                <p>Desincha e primeiros resultados</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="icon">📉</div>
+                            <div class="text">
+                                <h4>SEMANA 2</h4>
+                                <p>Perda de até <span id="tl-w2">3</span> kg</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="icon">⚡</div>
+                            <div class="text">
+                                <h4>SEMANA 3</h4>
+                                <p>Perda de <span id="tl-w3-min">5</span> a <span id="tl-w3-max">7</span> kg</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item highlight">
+                            <div class="icon">🔥</div>
+                            <div class="text">
+                                <h4>SEMANA 4 (META)</h4>
+                                <p>Perda de <span id="tl-w4-min">9</span> a <span id="tl-w4-max">12</span> kg</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <div class="badge" style="background:#E8F5E9; color:#2E7D32; padding:0.8rem 1rem; border-radius:8px; font-weight:800; font-size:0.95rem; display:inline-block; border:1px solid #C8E6C9;">
+                                🎉 Resultado esperado: -<span id="tl-total-min">9</span> a <span id="tl-total-max">12</span> kg em 21 dias
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer -->
+                <div class="offer-card">
+                    <div class="header">
+                        <h3>Receita com Chia + APP Protocolo Completo</h3>
+                        <p>Acesso Vitalício</p>
+                    </div>
+                    <div class="offer-content">
+                        <div class="text-center mb-4">
+                            <img src="assets/images/Logo_chia.png" alt="Receita com Chia" style="width:160px; border-radius:var(--radius-md);">
+                        </div>
+                        
+                        <div class="benefit-list" style="margin: 0;">
+                            <div class="benefit-item" style="border:none; padding: 0.5rem 0; font-size: 0.9rem;"><div class="icon" style="width:16px;height:16px;font-size:10px;">✓</div> Receitas com CHIA para secar.</div>
+                            <div class="benefit-item" style="border:none; padding: 0.5rem 0; font-size: 0.9rem;"><div class="icon" style="width:16px;height:16px;font-size:10px;">✓</div> Receitas deliciosas e práticas</div>
+                            <div class="benefit-item" style="border:none; padding: 0.5rem 0; font-size: 0.9rem;"><div class="icon" style="width:16px;height:16px;font-size:10px;">✓</div> Protocolo de 21 dias passo a passo</div>
+                            <div class="benefit-item" style="border:none; padding: 0.5rem 0; font-size: 0.9rem;"><div class="icon" style="width:16px;height:16px;font-size:10px;">✓</div> Acesso ao Aplicativo Exclusivo</div>
+                            <div class="benefit-item" style="border:none; padding: 0.5rem 0; font-size: 0.9rem;"><div class="icon" style="width:16px;height:16px;font-size:10px;">✓</div> Lista completa dos ingredientes e modo de preparo.</div>
+                            <div class="benefit-item" style="border:none; padding: 0.5rem 0; font-size: 0.9rem;"><div class="icon" style="width:16px;height:16px;font-size:10px;">✓</div> Acesso vitalício ao APP e Grupo VIP.</div>
+                        </div>
+
+                        <div class="bonus-box">
+                            <div class="bonus-item">🎁 BÔNUS: Guia completo de emagrecimento</div>
+                            <div class="bonus-item">🎁 BÔNUS: 20 Shakes para acelerar resultados</div>
+                            <div class="bonus-item">🎁 BÔNUS: 20 opções de café da manhã</div>
+                            <div class="bonus-item">🎁 BÔNUS: 40 opções sobremesas sem açúcar.</div>
+                        </div>
+
+                        <div class="price-box">
+                            <div class="old-price">TUDO ISSO DE R$109,00</div>
+                            <div style="font-size:0.8rem; color:#A0AEC0; margin-top:0.3rem;">POR APENAS</div>
+                            <div class="new-price">R$ 14,90</div>
+                            <div class="installments">Ou 3x de R$5,45</div>
+                        </div>
+
+                        <button class="btn btn-primary btn-full btn-pulse" onclick="window.location.href='https://pay.kirvano.com/f1a023f3-ce54-4c9d-aad6-55c3109e8eb8'" style="background:#38A169;">
+                            QUERO COMEÇAR 🥰
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Guarantee -->
+                <div class="guarantee-box">
+                    <img src="assets/images/garantia.png" alt="Garantia 30 Dias" style="max-width:80px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                    <h3>Garantia de Reembolso</h3>
+                    <p>Todo produto é obrigado a dar no mínimo 7 dias de garantia, porém confiamos tanto na fórmula que oferecemos 30 dias corridos.</p>
+                    <p>Ou seja, se você não gostar ou não funcionar pra você, nós reembolsaremos cada centavo que você pagou, sem questionar.</p>
+                </div>
+
+                <button class="btn btn-primary btn-full btn-pulse mb-5" onclick="window.location.href='https://pay.kirvano.com/f1a023f3-ce54-4c9d-aad6-55c3109e8eb8'" style="background:#38A169;">
+                    QUERO COMEÇAR 🥰
+                </button>
+
+                <!-- FAQ -->
+                <h2 class="step-title text-center mb-4 mt-5 pt-4">❓ Perguntas Frequentes</h2>
+                <div class="faq-section">
+                    
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">A Receita com Chia realmente funciona? <div class="icon">+</div></div>
+                        <div class="faq-answer">Sim! A combinação dos ingredientes ativos ativa receptores no seu corpo que promovem a queima de gordura e o desinchaço natural.</div>
+                    </div>
+                    
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">Quanto tempo leva para ver resultados? <div class="icon">+</div></div>
+                        <div class="faq-answer">Nossas alunas começam a sentir a constipação indo embora e o corpo desinchado já nos primeiros 3 a 5 dias de uso regular.</div>
+                    </div>
+                    
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">É seguro? Tem efeitos colaterais? <div class="icon">+</div></div>
+                        <div class="faq-answer">Por ser uma receita 100% natural, não possui contraindicações genéricas ou efeitos colaterais pesados. Mas recomendamos cautela se tiver restrições médicas específicas.</div>
+                    </div>
+                    
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">Como vou receber o protocolo? <div class="icon">+</div></div>
+                        <div class="faq-answer">Assim que o pagamento for aprovado, você receberá um e-mail com o acesso imediato ao nosso Aplicativo Exclusivo, onde todo o material está estruturado passo a passo.</div>
+                    </div>
+                    
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">E se não funcionar pra mim? <div class="icon">+</div></div>
+                        <div class="faq-answer">Você tem nossa Garantia Blindada de 30 dias. Se aplicar e não tiver resultados, basta enviar um e-mail reclamando seu dinheiro de volta.</div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">O pagamento é seguro? <div class="icon">+</div></div>
+                        <div class="faq-answer">Sim! O pagamento é processado pela maior plataforma de produtos digitais da América Latina, possuindo criptografia de ponta a ponta.</div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-full btn-pulse mb-3" onclick="window.location.href='https://pay.kirvano.com/f1a023f3-ce54-4c9d-aad6-55c3109e8eb8'" style="background:#38A169;">
+                    QUERO COMEÇAR 🥰
+                </button>
+                <div class="text-center" style="font-size:0.8rem; color:#A0AEC0;">
+                    🔒 Compra 100% segura • Garantia de 30 dias
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+
+    <!-- UTM Tracking Global Script -->
+    <script>
+    (function() {
+      function getParams() {
+        return window.location.search;
+      }
+
+      function saveParams() {
+        const params = getParams();
+        if (params && params.length > 1) {
+          localStorage.setItem('utm_params', params);
+        }
+      }
+
+      function applyParams() {
+        const savedParams = localStorage.getItem('utm_params');
+        if (!savedParams) return;
+
+        // Atualiza as tags <a>
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+          if (link.href.includes('pay.kirvano.com')) {
+            if (!link.href.includes('?')) {
+              link.href = link.href + savedParams;
+            }
+          }
+        });
+
+        // Atualiza os botões do quiz que usam onclick="window.location.href='...'"
+        const buttons = document.querySelectorAll('button[onclick*="pay.kirvano.com"]');
+        buttons.forEach(btn => {
+          let onclickAttr = btn.getAttribute('onclick');
+          if (onclickAttr) {
+            const urlMatch = onclickAttr.match(/window\.location\.href\s*=\s*'([^']+)'/);
+            if (urlMatch && urlMatch[1]) {
+              let url = urlMatch[1];
+              if (!url.includes('?')) {
+                url = url + savedParams;
+                btn.setAttribute('onclick', `window.location.href='${url}'`);
+              }
+            }
+          }
+        });
+      }
+
+      saveParams();
+      window.addEventListener('load', applyParams);
+    })();
+    </script>
+</body>
+</html>
